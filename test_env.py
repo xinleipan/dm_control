@@ -23,9 +23,9 @@ SUITE = containers.TaggedTasks()
 
 
 _FILENAMES = [
-    "./common/materials_tmp.xml",
-    "./common/skybox_tmp.xml",
-    "./common/visual_tmp.xml",
+    "./common/materials.xml",
+    "./common/skybox.xml",
+    "./common/visual.xml",
 ]
 
 def read_model(xml_path):
