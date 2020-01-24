@@ -128,6 +128,7 @@ class HalfCheetahEnv(object):
         done = self.num_steps >= 1000
         return state, reward, done, None
 
+
 if __name__ == '__main__':
     xml_path = 'common/cheetah.xml'
     dir_path = os.path.dirname(os.path.abspath(__file__))
@@ -139,7 +140,8 @@ if __name__ == '__main__':
     _ = env.step(action)
     next_state = env.env._physics.get_state()
     # set to the previous state and get obs
-    env.env._physics.set_state(state)
+    with env.env._physics.reset_context():
+        env.env._physics.set_state(state)
     new_obs = env.env._physics.render(camera_id=0)
     diff = (obs - new_obs)**2.0
     print(np.sum(diff))
